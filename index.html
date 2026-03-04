@@ -36,7 +36,31 @@
 </head>
 
 <body>
+<div id="live-notification"></div>
 
+<script>
+const users = [
+"Anna (41) aus Berlin ist gerade online",
+"Sabine (38) aus Hamburg hat ein neues Profil erstellt",
+"Katrin (45) aus München sucht neue Bekanntschaften",
+"Petra (52) aus Köln ist jetzt aktiv",
+"Nicole (39) aus Frankfurt hat sich gerade angemeldet"
+];
+
+function showNotification(){
+const el = document.getElementById("live-notification");
+
+el.innerText = users[Math.floor(Math.random()*users.length)];
+
+el.style.opacity = "1";
+
+setTimeout(()=>{
+el.style.opacity = "0";
+},4000);
+}
+
+setInterval(showNotification,8000);
+</script>
 <div class="hero-bg"></div>
 
 <div class="container">
@@ -161,5 +185,6 @@
 </div>
 </body>
 </html>
+
 
 
