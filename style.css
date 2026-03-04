@@ -302,3 +302,19 @@ transform:scale(1);
 transform:scale(1.08);
 box-shadow:0 10px 30px rgba(255,255,255,0.35);
 }
+.card-badge{
+position:absolute;
+top:12px;
+left:12px;
+background:linear-gradient(45deg,#ec4899,#f43f5e);
+color:white;
+font-size:12px;
+padding:5px 10px;
+border-radius:20px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card{
+position:relative;
+}
