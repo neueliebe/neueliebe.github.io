@@ -271,3 +271,7 @@ transform:scale(1.08);
 transform:scale(1.08);
 filter:brightness(1.05);
 }
+.card:active{
+transform: scale(0.97);
+transition: transform 0.1s;
+}
