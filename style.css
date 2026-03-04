@@ -271,3 +271,7 @@ transform:scale(1.08);
 transform:scale(1.08);
 filter:brightness(1.05);
 }
+.profiles .card:first-child {
+transform: scale(1.05);
+box-shadow: 0 30px 90px rgba(236,72,153,0.25);
+}
