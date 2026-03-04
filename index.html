@@ -66,6 +66,21 @@ setInterval(showNotification,8000);
 <div class="container">
 
 <header class="hero">
+  <div class="activity-bar">
+
+<span id="active-members">
+128 Mitglieder heute aktiv
+</span>
+
+<span id="new-profiles">
+34 neue Profile heute
+</span>
+
+<span id="online-now">
+19 gerade online
+</span>
+
+</div>
 <h1>Neue Liebe beginnt heute</h1>
 <p>Exklusive Partnersuche für anspruchsvolle Singles ab 35.</p>
 <a href="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social" class="btn main-btn">Jetzt entdecken</a>
@@ -183,8 +198,36 @@ setInterval(showNotification,8000);
 </footer>
 
 </div>
+  <script>
+
+let active = 120 + Math.floor(Math.random()*20);
+let profiles = 30 + Math.floor(Math.random()*10);
+let online = 15 + Math.floor(Math.random()*10);
+
+function updateStats(){
+
+active += Math.floor(Math.random()*3)-1;
+profiles += Math.floor(Math.random()*2);
+online += Math.floor(Math.random()*3)-1;
+
+document.getElementById("active-members").innerText =
+active + " Mitglieder heute aktiv";
+
+document.getElementById("new-profiles").innerText =
+profiles + " neue Profile heute";
+
+document.getElementById("online-now").innerText =
+online + " gerade online";
+
+}
+
+updateStats();
+setInterval(updateStats,7000);
+
+</script>
 </body>
 </html>
+
 
 
 
