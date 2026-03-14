@@ -5,97 +5,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Open profiles</title>
+<title>Profiles</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#0b1220;
+font-family:Arial, Helvetica, sans-serif;
+background:#071426;
 color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
 text-align:center;
 }
 
+/* стрелка */
+
+.tap-indicator{
+position:fixed;
+top:40px;
+right:15px;
+text-align:center;
+z-index:9999;
+}
+
+.arrow-box{
+width:52px;
+height:52px;
+border-radius:14px;
+background:linear-gradient(#d8d8d8,#8a8a8a);
+display:flex;
+align-items:center;
+justify-content:center;
+animation:arrowMove 1.4s infinite ease-in-out;
+box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
+
+.arrow{
+font-size:24px;
+color:white;
+}
+
+.arrow-text{
+margin-top:6px;
+font-size:14px;
+font-weight:600;
+animation:glow 1.6s infinite ease-in-out;
+}
+
+@keyframes arrowMove{
+0%{transform:translateY(0)}
+50%{transform:translateY(-6px)}
+100%{transform:translateY(0)}
+}
+
+@keyframes glow{
+0%{opacity:0.6;transform:scale(1)}
+50%{opacity:1;transform:scale(1.08)}
+100%{opacity:0.6;transform:scale(1)}
+}
+
+/* контент */
+
 .container{
-max-width:400px;
-padding:20px;
+padding-top:120px;
+max-width:420px;
+margin:auto;
 }
 
 h1{
 font-size:28px;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 p{
-color:#cbd5e1;
+opacity:0.8;
+margin-bottom:30px;
 }
 
 .btn{
 display:inline-block;
-margin-top:25px;
-padding:16px 28px;
-border-radius:12px;
-background:linear-gradient(45deg,#ff4d7a,#ff6a95);
+padding:16px 32px;
+border-radius:30px;
+background:linear-gradient(45deg,#ff4b6e,#ff6b81);
 color:white;
 text-decoration:none;
 font-weight:bold;
 font-size:18px;
-box-shadow:0 0 25px rgba(255,80,120,0.6);
+box-shadow:0 6px 20px rgba(255,80,120,0.5);
+transition:0.3s;
 }
 
-.arrow{
-position:fixed;
-top:65px;
-right:20px;
-font-size:60px;
-color:#ff4d7a;
-animation:arrowMove 1.5s infinite;
+.btn:hover{
+transform:scale(1.05);
 }
 
-@keyframes arrowMove{
-
-0%{transform:translateY(0)}
-50%{transform:translateY(-12px)}
-100%{transform:translateY(0)}
-
-}
-
-.arrow-text{
-position:fixed;
-top:120px;
-right:15px;
+.note{
+margin-top:25px;
 font-size:14px;
-color:#fff;
-opacity:0.9;
+opacity:0.7;
 }
 
 </style>
-
-<script>
-
-const url = "https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social";
-
-const ua = navigator.userAgent.toLowerCase();
-
-if(ua.includes("android")){
-    
-window.location.replace(url);
-
-}
-
-</script>
 
 </head>
 
 <body>
 
-<div class="arrow">⬆</div>
+<div class="tap-indicator">
+<div class="arrow-box">
+<div class="arrow">↑</div>
+</div>
 <div class="arrow-text">Tap here</div>
+</div>
 
 <div class="container">
 
@@ -103,15 +123,15 @@ window.location.replace(url);
 
 <p>Click below to see the profiles.</p>
 
-<a class="btn" href="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social">
+<a class="btn" href="https://go.cm-trk6.com/aff_f?offer_id=XXXX">
 View profiles
 </a>
 
-<p style="margin-top:20px;font-size:14px;">
+<div class="note">
 If profiles do not open,<br>
-tap ••• in the top right<br>
+tap <b>•••</b> in the top right<br>
 and choose <b>"Open in browser"</b>
-</p>
+</div>
 
 </div>
 
