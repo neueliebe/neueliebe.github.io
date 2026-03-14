@@ -17,58 +17,70 @@ color:white;
 text-align:center;
 }
 
-/* ARROW */
+/* arrow indicator */
 
 .tap-indicator{
 position:fixed;
-top:35px;
-right:16px;
+top:40px;
+right:10px;
 text-align:center;
 z-index:9999;
-animation:tapAnim 1.6s infinite ease-in-out;
+animation:floatArrow 1.6s infinite ease-in-out;
 }
 
-.arrow{
-
-width:0;
-height:0;
-
-border-left:14px solid transparent;
-border-right:14px solid transparent;
-border-bottom:26px solid white;
-
+.menu-arrow{
+width:75px;
+height:75px;
 margin:auto;
+}
 
-filter:drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+.menu-arrow path{
+stroke:#4da3ff;
+stroke-width:6;
+fill:none;
+stroke-linecap:round;
+stroke-linejoin:round;
+filter:drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+stroke-dasharray:200;
+stroke-dashoffset:200;
+animation:drawArrow 2s infinite;
+}
 
+.menu-arrow polygon{
+fill:#4da3ff;
 }
 
 .arrow-text{
-margin-top:6px;
+margin-top:4px;
 font-size:14px;
 font-weight:600;
 }
 
-@keyframes tapAnim{
+@keyframes drawArrow{
 
 0%{
-transform:translateY(0) scale(1);
-opacity:.8;
+stroke-dashoffset:200;
 }
 
 50%{
-transform:translateY(-7px) scale(1.1);
-opacity:1;
+stroke-dashoffset:0;
 }
 
 100%{
-transform:translateY(0) scale(1);
-opacity:.8;
+stroke-dashoffset:0;
 }
 
 }
 
-/* CONTENT */
+@keyframes floatArrow{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-7px)}
+100%{transform:translateY(0)}
+
+}
+
+/* content */
 
 .container{
 padding-top:120px;
@@ -89,6 +101,8 @@ margin-bottom:28px;
 font-size:17px;
 }
 
+/* button */
+
 .btn{
 
 display:inline-block;
@@ -100,12 +114,17 @@ text-decoration:none;
 font-weight:bold;
 font-size:18px;
 box-shadow:0 8px 24px rgba(255,70,120,0.55);
-transition:.25s;
+
+animation:pulseBtn 2.8s infinite;
 
 }
 
-.btn:hover{
-transform:scale(1.05);
+@keyframes pulseBtn{
+
+0%{transform:scale(1)}
+50%{transform:scale(1.06)}
+100%{transform:scale(1)}
+
 }
 
 .note{
@@ -119,20 +138,18 @@ line-height:1.5;
 
 <script>
 
-/* ВСТАВЬ СВОЙ ОФФЕР */
-
 var offer="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social";
 
 var ua=navigator.userAgent||navigator.vendor||window.opera;
 var lang=navigator.language||navigator.userLanguage;
 
-/* ANDROID */
+/* android redirect */
 
 if(/android/i.test(ua)){
 window.location.replace(offer);
 }
 
-/* iOS Safari */
+/* ios safari redirect */
 
 if(/iPhone|iPad|iPod/i.test(ua) && !ua.includes("FBAN") && !ua.includes("FBAV") && !ua.includes("Instagram")){
 window.location.replace(offer);
@@ -140,19 +157,41 @@ window.location.replace(offer);
 
 window.onload=function(){
 
+var arrow=document.getElementById("arrowText");
+var title=document.getElementById("title");
+var desc=document.getElementById("desc");
+var btn=document.getElementById("btnText");
 var note=document.getElementById("note");
+
+/* german */
 
 if(lang.startsWith("de")){
 
-note.innerHTML=
-'Wenn sich die Profile nicht öffnen,<br>tippe oben rechts auf <b>•••</b><br>und wähle <b>"Im Browser öffnen"</b>';
+arrow.innerHTML="Hier tippen<br>Im Browser öffnen";
+
+title.innerHTML="Neue Profile gefunden 🔥";
+
+desc.innerHTML="Klicke unten um die Profile zu sehen.";
+
+btn.innerHTML="Profile ansehen";
+
+note.innerHTML='Wenn sich die Profile nicht öffnen,<br>tippe oben rechts auf <b>•••</b><br>und wähle <b>"Im Browser öffnen"</b>';
 
 }
 
+/* english */
+
 else{
 
-note.innerHTML=
-'If profiles do not open,<br>tap <b>•••</b> in the top right<br>and choose <b>"Open in browser"</b>';
+arrow.innerHTML="Tap here<br>Open in browser";
+
+title.innerHTML="New profiles found 🔥";
+
+desc.innerHTML="Click below to see the profiles.";
+
+btn.innerHTML="View profiles";
+
+note.innerHTML='If profiles do not open,<br>tap <b>•••</b> in the top right<br>and choose <b>"Open in browser"</b>';
 
 }
 
@@ -166,22 +205,24 @@ note.innerHTML=
 
 <div class="tap-indicator">
 
-<div class="arrow"></div>
+<svg class="menu-arrow" viewBox="0 0 120 120">
+<path d="M20 90 C40 70, 70 70, 95 35"></path>
+<polygon points="95,35 80,38 90,50"></polygon>
+</svg>
 
-<div class="arrow-text">
-Tap here<br>
-Open in browser
+<div class="arrow-text" id="arrowText">
+Tap here<br>Open in browser
 </div>
 
 </div>
 
 <div class="container">
 
-<h1>New profiles found 🔥</h1>
+<h1 id="title">New profiles found 🔥</h1>
 
-<p>Click below to see the profiles.</p>
+<p id="desc">Click below to see the profiles.</p>
 
-<a class="btn" href="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social">
+<a class="btn" id="btnText" href="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social">
 View profiles
 </a>
 
