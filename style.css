@@ -321,3 +321,21 @@ position:relative;
 .glass-btn:hover{
 background: rgba(255,255,255,0.18);
 }
+.arrow{
+
+font-size:48px;
+margin-bottom:10px;
+
+animation:arrowMove 1.6s infinite;
+
+}
+
+@keyframes arrowMove{
+
+0%{transform:translate(0,0)}
+
+50%{transform:translate(10px,-10px)}
+
+100%{transform:translate(0,0)}
+
+}
