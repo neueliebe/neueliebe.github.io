@@ -325,10 +325,31 @@ background: rgba(255,255,255,0.18);
 
 position:fixed;
 top:70px;
-right:15px;
+right:18px;
 
-font-size:48px;
+font-size:70px;
+color:#ff4d7a;
 
-animation:arrowMove 1.6s infinite;
+transform:rotate(0deg);
+
+animation:arrowPulse 1.4s infinite;
+
+z-index:9999;
+
+}
+
+@keyframes arrowPulse{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0);
+}
 
 }
