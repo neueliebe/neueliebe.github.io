@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +11,7 @@
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#0f172a;
 color:white;
 display:flex;
@@ -39,9 +40,31 @@ box-shadow:0 10px 30px rgba(236,72,153,.4);
 }
 
 .tip{
-margin-top:20px;
+margin-top:30px;
 font-size:14px;
 color:#94a3b8;
+}
+
+.arrow{
+
+position:fixed;
+top:70px;
+right:15px;
+
+font-size:48px;
+
+animation:arrowMove 1.4s infinite;
+
+}
+
+@keyframes arrowMove{
+
+0%{transform:translate(0,0)}
+
+50%{transform:translate(6px,-6px)}
+
+100%{transform:translate(0,0)}
+
 }
 
 </style>
@@ -60,30 +83,49 @@ color:#94a3b8;
 Profile ansehen
 </a>
 
-<p class="tip" id="tip">
-Falls sich die Profile nicht öffnen,<br>
-tippen Sie oben rechts auf <b>•••</b><br>
-und wählen Sie <b>"Im Browser öffnen"</b>.
-</p>
+<div class="tip" id="tipText">
+
+Tap <b>•••</b> in the top right<br>
+and choose <b>"Open in browser"</b>
 
 </div>
 
+</div>
+
+<div class="arrow" id="arrow">↗</div>
+
 <script>
 
+// ===== DEVICE DETECT =====
+
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+if(!isIOS){
+
+// Android / PC → сразу редирект
+
+window.location.href="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social";
+
+}
+
+// ===== GEO LANGUAGE =====
+
 fetch("https://ipapi.co/json/")
-.then(res => res.json())
-.then(data => {
+.then(res=>res.json())
+.then(data=>{
 
-const country = data.country;
+const country=data.country;
 
-if(country !== "DE" && country !== "AT" && country !== "CH"){
+if(country==="DE" || country==="AT" || country==="CH"){
 
-document.getElementById("title").innerText = "New profiles found 🔥";
-document.getElementById("text").innerText = "Click below to see the profiles.";
-document.getElementById("btn").innerText = "View profiles";
+document.getElementById("tipText").innerHTML=
+'Tippe oben rechts auf <b>•••</b><br>und wähle <b>"Im Browser öffnen"</b>';
 
-document.getElementById("tip").innerHTML =
-'If profiles do not open,<br>tap <b>•••</b> in the top right<br>and choose <b>"Open in browser"</b>.';
+document.getElementById("btn").innerText="Profile ansehen";
+
+document.getElementById("title").innerText="Neue Profile gefunden 🔥";
+
+document.getElementById("text").innerText="Klicken Sie unten um die Profile zu sehen.";
 
 }
 
