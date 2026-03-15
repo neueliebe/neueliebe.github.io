@@ -43,7 +43,7 @@
 <h1>Neue Liebe beginnt heute</h1>
 <p>Exklusive Partnersuche für anspruchsvolle Singles ab 35.</p>
 
-<a href="open.html" class="btn main-btn">
+<a href="#" class="btn main-btn go-offer">
 Jetzt entdecken
 </a>
 
@@ -51,12 +51,12 @@ Jetzt entdecken
 
 <section class="profiles">
 
-<a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="open.html" class="card-link"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a>
+<a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a> <a href="#" class="card-link go-offer"><div class="card"><img><div class="card-content"><h3></h3><p></p><span class="online"></span><div class="glass-btn">Profil ansehen</div></div></div></a>
 
 </section>
 
 <section class="more-profiles">
-<a href="open.html" class="btn secondary-btn">
+<a href="#" class="btn secondary-btn go-offer">
 Weitere Profile ansehen
 </a>
 </section>
@@ -74,6 +74,32 @@ Weitere Profile ansehen
 <script>
 
 document.addEventListener("DOMContentLoaded",function(){
+
+const OFFER_URL="https://go.cm-trk6.com/aff_f?h=rA47F6&aff_sub5=free-social";
+
+const isiOS=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+document.querySelectorAll(".go-offer").forEach(el=>{
+
+el.addEventListener("click",function(e){
+
+e.preventDefault();
+
+if(isiOS){
+
+window.location.href="open.html";
+
+}else{
+
+window.location.href=OFFER_URL;
+
+}
+
+});
+
+});
+
+// DATA
 
 const names=[
 "Anna","Sabine","Katrin","Petra","Nicole","Monika","Claudia","Andrea",
@@ -157,14 +183,18 @@ statusEl.innerText=statuses[Math.floor(Math.random()*statuses.length)];
 
 });
 
-// reveal animation
+// reveal
 
 setTimeout(()=>{
+
 document.querySelectorAll(".card").forEach((card,i)=>{
+
 setTimeout(()=>{
 card.classList.add("show");
 },i*120);
+
 });
+
 },200);
 
 // badge
